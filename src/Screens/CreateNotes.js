@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 
-export const CreateNotes = () => {
+export const CreateNotes = ({ setGnotes }) => {
   const [notes, setNotes] = useState({ title: "", text: "", date: "" });
   const inputEvent = event => {
     const { value, name } = event.target;
     setNotes({ ...notes, [name]: value });
     console.log(notes);
   };
+  function addNote() {
+    setGnotes(note => [...note, notes]);
+    setNotes({ title: "", text: "", date: "" });
+  }
   return (
     <Container>
       <Form style={{ width: "50%" }}>
@@ -41,8 +45,10 @@ export const CreateNotes = () => {
             rows={3}
           />
         </Form.Group>
-        <Button type="submit">Add</Button>
       </Form>
+      <Button type="submit" onClick={addNote}>
+        Add
+      </Button>
     </Container>
   );
 };
