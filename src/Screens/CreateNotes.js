@@ -1,16 +1,25 @@
 import React, { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
+import uniqid from "uniqid";
 
 export const CreateNotes = ({ setGnotes }) => {
-  const [notes, setNotes] = useState({ title: "", text: "", date: "" });
+  const [notes, setNotes] = useState({
+    id: uniqid(),
+    title: "",
+    text: "",
+    date: ""
+  });
+  //const [id, setId] = useState(uniqid());
   const inputEvent = event => {
     const { value, name } = event.target;
-    setNotes({ ...notes, [name]: value });
-    console.log(notes);
+    setNotes({ ...notes, id: uniqid(), [name]: value });
   };
   function addNote() {
-    setGnotes(note => [...note, notes]);
-    setNotes({ title: "", text: "", date: "" });
+    if (notes.title !== "" || notes.text !== "") {
+      setGnotes(note => [...note, notes]);
+      // setId(uniqid());
+      setNotes({ id: uniqid(), title: "", text: "", date: "" });
+    }
   }
   return (
     <Container>

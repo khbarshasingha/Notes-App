@@ -15,7 +15,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/notes">
-          <Notes gnotes={gnotes} />
+          <Notes gnotes={gnotes} setGnotes={setGnotes} />
         </Route>
         <Route path="/create">
           <CreateNotes setGnotes={setGnotes} />
