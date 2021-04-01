@@ -16,12 +16,12 @@ function App() {
       <Container>
         {" "}
         <Row>
-          <Col sm="12" md="6" lg="6" xl="6">
+          <Col sm="12" md="7" lg="8" xl="9">
             <Home />
 
             <CreateNotes setGnotes={setGnotes} />
           </Col>
-          <Col sm="12" md="6" l="6" xl="6">
+          <Col sm="12" md="5" lg="4" xl="3">
             <Switch>
               <Route path="/notes">
                 <Notes gnotes={gnotes} setGnotes={setGnotes} />

@@ -23,20 +23,22 @@ export const Notes = ({ gnotes, setGnotes }) => {
         {" "}
         {gnotes.map(note => {
           return (
-            <Card style={{ width: "18rem" }}>
-              <Card.Body>
-                <Card.Title>{note.title}</Card.Title>
+            <Col>
+              <Card style={{ width: "18rem" }}>
+                <Card.Body>
+                  <Card.Title>{note.title}</Card.Title>
 
-                <Card.Text>{note.text}</Card.Text>
+                  <Card.Text>{note.text}</Card.Text>
 
-                <i
-                  className="fas fa-trash float-right"
-                  onClick={() => {
-                    deleteNote(note.id);
-                  }}
-                />
-              </Card.Body>
-            </Card>
+                  <i
+                    className="fas fa-trash float-right"
+                    onClick={() => {
+                      deleteNote(note.id);
+                    }}
+                  />
+                </Card.Body>
+              </Card>
+            </Col>
           );
         })}
       </Row>
